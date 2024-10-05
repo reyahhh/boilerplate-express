@@ -10,13 +10,15 @@ app.get("/", (req, res) => {
 app.get(
     "/now",
     (req, res, next) => {
+      // adding a new property to req object
+      // in the middleware function
       req.time = new Date().toString();
       next();
     },
     (req, res) => {
-      res.send({
-        time: req.time
-      });
+      // accessing the newly added property
+      // in the main function
+      res.send(req.time);
     }
   );
 
