@@ -7,15 +7,16 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
 });
 
-app.get('/now', 
+app.get(
+    "/now",
     (req, res, next) => {
-      // Middleware function
       req.time = new Date().toString();
-      next(); // Pass control to the next function
+      next();
     },
     (req, res) => {
-      // Final handler
-      res.json({ time: req.time });
+      res.send({
+        time: req.time
+      });
     }
   );
 
