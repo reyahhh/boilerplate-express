@@ -7,8 +7,7 @@ app.get(
     (req, res, next) => {
       // adding a new property to req object
       // in the middleware function
-      req.time = new Date().toString();
-      res.send({time: req.time});
+      req.time = new Date().toISOString();
       next();
     },
     (req, res) => {
