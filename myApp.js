@@ -18,7 +18,7 @@ app.get(
     (req, res) => {
       // accessing the newly added property
       // in the main function
-      res.send(req.time);
+      res.json({"time": req.time});
     }
   );
 
