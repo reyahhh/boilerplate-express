@@ -13,6 +13,7 @@ app.get(
       // adding a new property to req object
       // in the middleware function
       req.time = new Date().toString();
+      res.send(req.time);
       next();
     },
     (req, res) => {
