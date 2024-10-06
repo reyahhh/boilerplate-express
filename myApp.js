@@ -6,10 +6,12 @@ let app = express();
 
 app.post("/name", function(req, res) {
   // Handle the data in the request
-  var string = req.body.first + " " + req.body.last;
-  res.json({ name: string });
+  var firstName = req.body.first;
+  var lastName = req.body.last;
+  res.json({
+    name: `${firstName} ${lastName}`
+  });
 });
-
 
 
 
