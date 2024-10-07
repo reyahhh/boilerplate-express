@@ -1,24 +1,18 @@
 require('dotenv').config()
-var bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
 
-let express = require('express');
-let app = express();
+// Use body-parser middleware to parse URL-encoded bodies
+app.use(bodyParser.urlencoded({ extended: false }));
 
+// ... other middleware and route handlers ...
 
-app.post("/name", function(req, res) {
-
-  // Handle the data in the request
-  var firstName = req.body.first;
-  var lastName = req.body.last;
-  res.json({
-    name: `${firstName} ${lastName}`
-  });
-  next();
+// POST handler for /name route
+app.post('/name', (req, res) => {
+  const { first, last } = req.body;
+  res.json({ name: `${first} ${last}` });
 });
-
-
-
-
 
 
 
